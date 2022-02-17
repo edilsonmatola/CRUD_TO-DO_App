@@ -3,8 +3,9 @@ body {
   background-color: #e5e5e5;
 }
 
-h3, h4 {
-    text-align: center;
+h3,
+h4 {
+  text-align: center;
 }
 
 .app {
@@ -20,56 +21,56 @@ h3, h4 {
   background-color: #fff;
 }
 
-#addNewTask{
-    cursor: pointer;
-    display: flex;
-    background-color: rgba(171, 206, 161, 0.35);
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px 10px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+#addNewTask {
+  cursor: pointer;
+  display: flex;
+  background-color: rgba(171, 206, 161, 0.35);
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .fa-plus {
-    background-color: #abcea1;
-    padding: 3px;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
+  background-color: #abcea1;
+  padding: 3px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
-#addedTasks{
-    display: grid;
-    gap: 15px;
+#addedTasks {
+  display: grid;
+  gap: 15px;
 }
 
-#addedTasks div{
-    background-color: #e2eede;
-    border: 3px solid #abcea1;
-    padding: 5px;
-    border-radius: 6px;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
-    display: grid;
-    gap: 5px;
+#addedTasks div {
+  background-color: #e2eede;
+  border: 3px solid #abcea1;
+  padding: 5px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  display: grid;
+  gap: 5px;
 }
 
 .options {
-    justify-self: center;
-    display: flex;
-    gap: 20px;
+  justify-self: center;
+  display: flex;
+  gap: 20px;
 }
 
 .options i {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 a {
