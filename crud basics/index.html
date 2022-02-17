@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Basics</title>
+    <!--=====================================================
+			CSS Stylesheets
+		=====================================================-->
+    <link rel="stylesheet" type='text/css' href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+    <h1>Social Media Application</h1>
+    <section>
+        <div class="container">
+            <div class="left">
+                <form id="form">
+                    <div><label for="">Write your first post here:</label></div>
+                    <textarea name="textArea" id="inputArea" cols="30" rows="10"></textarea>
+                    <div id="msg"></div>
+                    <div><button type="submit">Post</button></div>
+                </form>
+            </div>
+            <div class="right">
+                <h3>Your posts will appear here.</h3>
+                <div id="posts">
+                    <div>
+                        <p>Post 1</p>
+                        <span class="options">
+                            <i title='Edit' class="fas fa-edit" onClick="editPost(this)"></i>
+                            <i title='Delete' class="fas fa-trash-alt" onClick="deletePost(this)"></i>
+                        </span>
+                    </div>
+                    <div>
+                        <p>Post 2</p>
+                        <span class="options">
+                            <i title='Edit' class="fas fa-edit" onClick="editPost(this)"></i>
+                            <i title='Delete' class="fas fa-trash-alt" onClick="deletePost(this)"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; <a href="https://github.com/edilsonmatola" target='_blank'>Edilson Matola</a></p>
+    </footer>
+
+    <!--=====================================================
+			JavaScript Files
+		=====================================================-->
+    <script src="script/script.js"></script>
+</body>
+
+</html>
