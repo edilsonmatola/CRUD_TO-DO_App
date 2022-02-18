@@ -19,6 +19,19 @@ h4 {
   -o-border-radius: 8px;
   padding: 15px;
   background-color: #fff;
+  overflow-y: scroll;
+}
+
+.app::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.app {
+  overflow: -moz-scrollbars-none;
+}
+
+.app {
+  -ms-overflow-style: none;
 }
 
 #addNewTask {
@@ -71,6 +84,10 @@ h4 {
 
 .options i {
   cursor: pointer;
+}
+
+#msg {
+  color: red;
 }
 
 textarea {
