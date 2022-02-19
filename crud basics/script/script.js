@@ -30,7 +30,7 @@ let formValidation = () => {
 //* Store the posts data
 let data = {};
 
-// A
+//* Accepting and collecting the data
 let acceptData = () => {
   data["text"] = input.value;
   console.log(data);
