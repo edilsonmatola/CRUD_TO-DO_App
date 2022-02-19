@@ -51,8 +51,8 @@ let addTask = () => {
         <span class='small text-secondary'>${data.taskDate}</span>
             <p>${data.taskDescription}</p>
         <span class="options">
-            <i title='Edit' class='fas fa-edit'></i>
-            <i title='Delete' class='fas fa-trash-alt'></i>
+            <i title='Edit' class='fas fa-edit' onClick='editTask(this)' data-bs-toggle="modal" data-bs-target="#form"></i>
+            <i title='Delete' class='fas fa-trash-alt' onClick='deleteTask(this)'></i>
         </span>
     </div>`;
 
@@ -60,4 +60,21 @@ let addTask = () => {
   taskTitle.value = "";
   taskDate.value = "";
   descriptionTask.value = "";
+};
+
+// * Update Task
+let editTask = (event) => {
+  let selectedTask = event.parentElement.parentElement;
+
+  taskTitle.value = selectedTask.children[0].innerHTML
+  taskDate.value = selectedTask.children[1].innerHTML;
+  taskDescription.value = selectedTask.children[2].innerHTML;
+
+  selectedTask.remove();
+
+};
+
+//* Delete Task
+let deleteTask = (event) => {
+  event.parentElement.parentElement.remove();
 };
