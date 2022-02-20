@@ -4,7 +4,7 @@ let taskTitle = document.getElementById("titleInput");
 
 let taskDate = document.getElementById("dateInput");
 
-let descriptionTask = document.getElementById("descriptionInput");
+let taskDescription = document.getElementById("descriptionInput");
 
 let message = document.getElementById("msg");
 
@@ -23,58 +23,79 @@ let taskValidation = () => {
   } else {
     message.innerHTML = "";
     acceptData();
-    addButton.setAttribute("ata-bs-dismiss", "modal");
+    addButton.setAttribute("data-bs-dismiss", "modal");
     addButton.click();
     (() => {
-      addButton.setAttribute("ata-bs-dismiss", "");
+      addButton.setAttribute("data-bs-dismiss", "");
     })();
   }
 };
 
 //* Store the tasks data
-let data = {};
+let data = [];
 
 //* Accepting and collecting the data
 let acceptData = () => {
-  data["taskTitle"] = taskTitle.value;
-  data["taskDate"] = taskDate.value;
-  data["taskDescription"] = descriptionTask.value;
+  data.push({
+    taskTitle: taskTitle.value,
+    taskDate: taskDate.value,
+    taskDescription: taskDescription.value,
+  });
+
+  // * Storing the data in the local
+  localStorage.setItem("data", JSON.stringify(data));
+
   console.log(data);
   addTask();
 };
 
 // * Add/Create task
 let addTask = () => {
-  tasks.innerHTML += `
-    <div>
-        <span class='fw-bold'>${data.taskTitle}</span>
-        <span class='small text-secondary'>${data.taskDate}</span>
-            <p>${data.taskDescription}</p>
+  tasks.innerHTML = "";
+  data.map((x, y) => {
+    return (tasks.innerHTML += `
+    <div id=${y}>
+        <span class='fw-bold'>${x.taskTitle}</span>
+        <span class='small text-secondary'>${x.taskDate}</span>
+            <p>${x.taskDescription}</p>
         <span class="options">
             <i title='Edit' class='fas fa-edit' onClick='editTask(this)' data-bs-toggle="modal" data-bs-target="#form"></i>
-            <i title='Delete' class='fas fa-trash-alt' onClick='deleteTask(this)'></i>
+            <i title='Delete' class='fas fa-trash-alt' onClick='deleteTask(this); addTask()'></i>
         </span>
-    </div>`;
+    </div>`);
+  });
+  resetFields();
+};
 
-  // * Reset the input fields
+// * Reset the input fields
+let resetFields = () => {
   taskTitle.value = "";
   taskDate.value = "";
-  descriptionTask.value = "";
+  taskDescription.value = "";
 };
 
 // * Update Task
 let editTask = (event) => {
   let selectedTask = event.parentElement.parentElement;
 
-  taskTitle.value = selectedTask.children[0].innerHTML
+  taskTitle.value = selectedTask.children[0].innerHTML;
   taskDate.value = selectedTask.children[1].innerHTML;
   taskDescription.value = selectedTask.children[2].innerHTML;
 
-  selectedTask.remove();
-
+  deleteTask(event);
 };
 
 //* Delete Task
 let deleteTask = (event) => {
   event.parentElement.parentElement.remove();
+  data.splice(event.parentElement.parentElement.id, 1);
+  localStorage.setItem("data", JSON.stringify(data));
+  console.log(data);
 };
+
+// * Get the data from the local storage to the data rray
+(() => {
+  data = JSON.parse(localStorage.getItem("data")) || [];
+  addTask();
+  console.log(data);
+})();
